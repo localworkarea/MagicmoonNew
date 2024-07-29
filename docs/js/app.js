@@ -215,7 +215,7 @@
                         this._getHash();
                         this._setHash();
                     }
-                    fetch("../files/data.json").then((response => response.json())).then((data => {
+                    fetch("files/data.json").then((response => response.json())).then((data => {
                         if (Array.isArray(data)) {
                             const popupData = data.find((item => item.id === this.buttonId.replace("popup-", "")));
                             if (popupData) {
@@ -4085,7 +4085,7 @@
             attributes: true
         });
         updateSpanTextBasedOnClass();
-        fetch("../files/data.json").then((response => response.json())).then((data => {
+        fetch("files/data.json").then((response => response.json())).then((data => {
             if (Array.isArray(data)) data.forEach((item => {
                 const packItem = document.querySelector(`#pack-${item.id}`);
                 if (packItem) {

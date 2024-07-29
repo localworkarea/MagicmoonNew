@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   // подставляем данные ссылок во все места ---------------------------
-  fetch('../files/data.json')
+  fetch('files/data.json')
   .then(response => response.json())
   .then(data => {
       if (Array.isArray(data)) {

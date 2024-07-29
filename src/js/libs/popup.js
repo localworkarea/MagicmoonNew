@@ -223,7 +223,7 @@ class Popup {
 
 
 			  // Load JSON data ---------------------------------------------------------------------------------
-				fetch('../files/data.json')
+				fetch('files/data.json')
 				.then(response => response.json())
 				.then(data => {
 						if (Array.isArray(data)) {
