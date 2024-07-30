@@ -9,9 +9,10 @@
 	opacity: 0;
 	.loaded & {
 		opacity: 1;
-		transition: opacity 0s linear .5s;
+		@media (min-width:toEm(1300.98)){
+			transition: opacity 0s linear .5s;
+		}
 		@media (max-width: toEm(1300.98)){
-			opacity: 1;
 			transition: opacity .7s ease 2.6s;
 		}
 	}
