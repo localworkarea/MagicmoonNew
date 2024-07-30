@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 	<head>
-		<title>MAGICMOON</title>
+		<title>MAGICMOON | Головна</title>
 		<meta charset="UTF-8">
 		<meta name="format-detection" content="telephone=no">
 		<style>body{opacity: 0;}</style>
@@ -11,30 +11,24 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<div class="bg-main">
-				<div class="bg-main__bg bg-0">
-					<picture>
-						<source srcset="@img/bg/bg-pc.svg" media="(min-width: 37.561em)" type="image/svg+xml">
-						<source srcset="@img/bg/bg-mob.svg" media="(max-width: 37.561em)" type="image/svg+xml">
-						<img class="bg-main__image" src="@img/bg/bg-pc.svg" width="1366" height="1024" alt="image">
-					</picture>
-				</div>
-				<div class="bg-main__bg bg-1"></div>
-				<div class="bg-main__bg bg-2"></div>
-				<div class="bg-main__bg bg-3"></div>
-				<div class="bg-main__bg bg-4"></div>
-				<div class="bg-main__bg bg-5"></div>
-				<div class="bg-main__bg bg-6"></div>
-				<div class="bg-main__bg bg-7"></div>
-				<div class="bg-main__bg bg-8"></div>
-				<div class="bg-main__bg bg-9"></div>
-				<div class="bg-main__bg bg-10"></div>
-				<div class="bg-main__bg bg-11"></div>
-				<div class="bg-main__bg bg-12"></div>
-				<div class="bg-main__bg bg-13"></div>
-				<div class="bg-main__bg bg-14"></div>
-				<div class="bg-main__bg bg-15"></div>
-				<div class="bg-main__bg bg-16"></div>
+			@@include('html/_bg.htm',{})
+			<div class="menu-hero">
+				<nav class="menu-hero__nav">
+					<ul class="menu-hero__list">
+						<!-- <li class="menu-hero__item">
+							<a href="#" class="menu-hero__link menu-hero-type">ВИДИ ЧАЮ</a>
+						</li>
+						<li class="menu-hero__item">
+							<a href="#" class="menu-hero__link menu-hero-about">ПРО НАС</a>
+						</li> -->
+						<li class="menu-hero__item">
+							<a href="promotion.html" class="menu-hero__link menu-hero-conts" aria-label="перехід на сторінку акції">Гроші в пачці</a>
+						</li>
+						<li class="menu-hero__item">
+							<a href="#" class="menu-hero__link menu-hero-conts sec-conts" aria-label="перехід на секцію з контактами">КОНТАКТИ</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
 			<header class="header">
 				<div class="header__body">
@@ -67,29 +61,14 @@
 								</div>
 							</div>
 							<ul class="nav__list">
-								<li class="nav__item"><a href="#" class="nav__link sec-type" aria-label="перемикання на екран Види чаю">ВИДИ ЧАЮ</a></li>
-								<li class="nav__item"><a href="#" class="nav__link sec-about" aria-label="перемикання на екран Про нас">про нас</a></li>
+								<li class="nav__item"><a href="promotion.html" class="nav__link" aria-label="перехід на сторінку акції">Гроші в пачці</a></li>
 								<li class="nav__item"><a href="#" class="nav__link sec-conts" aria-label="перемикання на екран Контакти">КОНТАКТИ</a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
-			<div class="hero__menu menu-hero">
-				<nav class="menu-hero__nav">
-					<ul class="menu-hero__list">
-						<li class="menu-hero__item">
-							<a href="#" class="menu-hero__link menu-hero-type">ВИДИ ЧАЮ</a>
-						</li>
-						<li class="menu-hero__item">
-							<a href="#" class="menu-hero__link menu-hero-about">ПРО НАС</a>
-						</li>
-						<li class="menu-hero__item">
-							<a href="#" class="menu-hero__link menu-hero-conts">КОНТАКТИ</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
+		
 			<main data-fp data-fp-effect="slider" class="main">
 				<section data-fp-section class="section hero _hide-header">
 					<div class="hero__title title-hero">
@@ -1107,7 +1086,7 @@
 			</div>
 		</div> -->
 
-		<script src="js/app.min.js"></script>
+		@@include('html/_js.htm',{})
 	</body>
 </html>
 

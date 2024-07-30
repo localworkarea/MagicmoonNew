@@ -247,8 +247,13 @@
                     this.previousOpen.element = this.targetOpen.element;
                     this._selectorOpen = false;
                     this.isOpen = true;
+                    if (this.previousButtonId) {
+                        this.targetOpen.element.classList.remove(this.previousButtonId);
+                        document.documentElement.classList.remove(this.previousButtonId);
+                    }
                     this.targetOpen.element.classList.add(this.buttonId);
                     document.documentElement.classList.add(this.buttonId);
+                    this.previousButtonId = this.buttonId;
                     setTimeout((() => {
                         this._focusTrap();
                     }), 50);
@@ -284,8 +289,7 @@
                 this.lastClosed.selector = this.previousOpen.selector;
                 this.lastClosed.element = this.previousOpen.element;
             }
-            this.targetOpen.element.classList.remove(this.buttonId);
-            document.documentElement.classList.remove(this.buttonId);
+            if (this.buttonId) document.documentElement.classList.remove(this.buttonId);
             this.buttonId = "";
             this.options.on.afterClose(this);
             document.dispatchEvent(new CustomEvent("afterPopupClose", {
@@ -327,8 +331,8 @@
             }
         }
         _focusTrap() {
-            const focusable = this.previousOpen.element.querySelectorAll(this._focusEl);
-            if (!this.isOpen && this.lastFocusEl) this.lastFocusEl.focus(); else focusable[0].focus();
+            this.previousOpen.element.querySelectorAll(this._focusEl);
+            if (!this.isOpen && this.lastFocusEl) this.lastFocusEl.focus();
         }
         popupLogging(message) {
             this.options.logging ? functions_FLS(`[Попапос]: ${message}`) : null;
@@ -3598,6 +3602,29 @@
                 }
             }
         });
+        if (document.querySelector(".promo__slider")) new Swiper(".promo__slider", {
+            modules: [ Navigation ],
+            observer: true,
+            observeParents: true,
+            spaceBetween: 0,
+            loop: true,
+            speed: 500,
+            navigation: {
+                prevEl: ".promo__slider .swiper-button-prev",
+                nextEl: ".promo__slider .swiper-button-next"
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                901: {
+                    slidesPerView: 3
+                },
+                1200: {
+                    slidesPerView: 4
+                }
+            }
+        });
     }
     window.addEventListener("load", (function(e) {
         initSliders();
@@ -3796,7 +3823,7 @@
             const secConct = document.querySelector(".sec-conct");
             const secAbout = document.querySelector(".sec-about");
             const secType = document.querySelector(".sec-type");
-            const secConts = document.querySelector(".sec-conts");
+            const secConts = document.querySelectorAll(".sec-conts");
             const menuLogo = document.querySelector(".menu__logo");
             const menuHeroType = document.querySelector(".menu-hero-type");
             const menuHeroAbout = document.querySelector(".menu-hero-about");
@@ -3820,8 +3847,10 @@
             if (secAbout) secAbout.addEventListener("click", (() => {
                 this.switchingSection(5);
             }));
-            if (secConts) secConts.addEventListener("click", (() => {
-                this.switchingSection(5);
+            if (secConts.length > 0) secConts.forEach((secCont => {
+                secCont.addEventListener("click", (() => {
+                    this.switchingSection(5);
+                }));
             }));
             if (secType) secType.addEventListener("click", (() => {
                 this.switchingSection(1);
@@ -4053,38 +4082,40 @@
             }));
         }
         const listPcBody = document.querySelector(".list-pc__body");
-        const listPcBtn = document.querySelector(".list-pc__btn");
-        const listPcList = document.querySelector(".list-pc__list");
-        const listPcLinks = document.querySelectorAll(".list-pc__link");
-        const listPcBtnSpan = listPcBtn.querySelector("span");
-        const secBlack = document.querySelector(".sec-black");
-        const secGreen = document.querySelector(".sec-green");
-        const secFruit = document.querySelector(".sec-fruit");
-        const secConct = document.querySelector(".sec-conct");
-        if (listPcList) {
-            const listWidth = listPcList.offsetWidth;
-            listPcBody.style.minWidth = `${listWidth}px`;
-        }
-        listPcBtn.addEventListener("click", (function() {
-            listPcBody.classList.toggle("_active");
-        }));
-        listPcLinks.forEach((function(link) {
-            link.addEventListener("click", (function() {
-                listPcBody.classList.remove("_active");
-                listPcBtnSpan.textContent = link.textContent;
+        if (listPcBody) {
+            const listPcBtn = document.querySelector(".list-pc__btn");
+            const listPcList = document.querySelector(".list-pc__list");
+            const listPcLinks = document.querySelectorAll(".list-pc__link");
+            const listPcBtnSpan = listPcBtn.querySelector("span");
+            const secBlack = document.querySelector(".sec-black");
+            const secGreen = document.querySelector(".sec-green");
+            const secFruit = document.querySelector(".sec-fruit");
+            const secConct = document.querySelector(".sec-conct");
+            if (listPcList) {
+                const listWidth = listPcList.offsetWidth;
+                listPcBody.style.minWidth = `${listWidth}px`;
+            }
+            listPcBtn.addEventListener("click", (function() {
+                listPcBody.classList.toggle("_active");
             }));
-        }));
-        function updateSpanTextBasedOnClass() {
-            const htmlElement = document.documentElement;
-            if (htmlElement.classList.contains("fp-section-1") && secBlack) listPcBtnSpan.textContent = secBlack.textContent; else if (htmlElement.classList.contains("fp-section-2") && secGreen) listPcBtnSpan.textContent = secGreen.textContent; else if (htmlElement.classList.contains("fp-section-3") && secFruit) listPcBtnSpan.textContent = secFruit.textContent; else if (htmlElement.classList.contains("fp-section-4") && secConct) listPcBtnSpan.textContent = secConct.textContent;
+            listPcLinks.forEach((function(link) {
+                link.addEventListener("click", (function() {
+                    listPcBody.classList.remove("_active");
+                    listPcBtnSpan.textContent = link.textContent;
+                }));
+            }));
+            function updateSpanTextBasedOnClass() {
+                const htmlElement = document.documentElement;
+                if (htmlElement.classList.contains("fp-section-1") && secBlack) listPcBtnSpan.textContent = secBlack.textContent; else if (htmlElement.classList.contains("fp-section-2") && secGreen) listPcBtnSpan.textContent = secGreen.textContent; else if (htmlElement.classList.contains("fp-section-3") && secFruit) listPcBtnSpan.textContent = secFruit.textContent; else if (htmlElement.classList.contains("fp-section-4") && secConct) listPcBtnSpan.textContent = secConct.textContent;
+            }
+            const observer = new MutationObserver((function(mutationsList) {
+                for (const mutation of mutationsList) if (mutation.attributeName === "class") updateSpanTextBasedOnClass();
+            }));
+            observer.observe(document.documentElement, {
+                attributes: true
+            });
+            updateSpanTextBasedOnClass();
         }
-        const observer = new MutationObserver((function(mutationsList) {
-            for (const mutation of mutationsList) if (mutation.attributeName === "class") updateSpanTextBasedOnClass();
-        }));
-        observer.observe(document.documentElement, {
-            attributes: true
-        });
-        updateSpanTextBasedOnClass();
         fetch("files/data.json").then((response => response.json())).then((data => {
             if (Array.isArray(data)) data.forEach((item => {
                 const packItem = document.querySelector(`#pack-${item.id}`);

@@ -168,6 +168,34 @@ function initSliders() {
 			},
 		});
 	}
+	if (document.querySelector('.promo__slider')) {
+		new Swiper('.promo__slider', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			// slidesPerView: 3,
+			spaceBetween: 0,
+			loop: true,
+
+			speed: 500,
+			navigation: {
+				prevEl: '.promo__slider .swiper-button-prev',
+				nextEl: '.promo__slider .swiper-button-next',
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+				},
+				901: {
+					slidesPerView: 3,
+				},
+				1200: {
+					slidesPerView: 4,
+				}
+				
+			},
+		});
+	}
 }
 
 window.addEventListener("load", function (e) {

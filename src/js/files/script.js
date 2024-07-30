@@ -21,61 +21,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Работа с навигацией в Хедере при переключении экранов ================================
   const listPcBody = document.querySelector('.list-pc__body');
-  const listPcBtn = document.querySelector('.list-pc__btn');
-  const listPcList = document.querySelector('.list-pc__list');
-  const listPcLinks = document.querySelectorAll('.list-pc__link');
-  const listPcBtnSpan = listPcBtn.querySelector('span');
-
-  const secBlack = document.querySelector('.sec-black');
-  const secGreen = document.querySelector('.sec-green');
-  const secFruit = document.querySelector('.sec-fruit');
-  const secConct = document.querySelector('.sec-conct');
-
-  // Устанавливаем минимальную ширину для list-pc__body
-  if (listPcList) {
-      const listWidth = listPcList.offsetWidth;
-      listPcBody.style.minWidth = `${listWidth}px`;
-  }
-
-  listPcBtn.addEventListener('click', function () {
-      listPcBody.classList.toggle('_active');
-  });
-
-  listPcLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-          listPcBody.classList.remove('_active');
-          listPcBtnSpan.textContent = link.textContent;
-      });
-  });
-
-  // Функция для обновления текста span в зависимости от класса
-  function updateSpanTextBasedOnClass() {
-      const htmlElement = document.documentElement;
-
-      if (htmlElement.classList.contains('fp-section-1') && secBlack) {
-          listPcBtnSpan.textContent = secBlack.textContent;
-      } else if (htmlElement.classList.contains('fp-section-2') && secGreen) {
-          listPcBtnSpan.textContent = secGreen.textContent;
-      } else if (htmlElement.classList.contains('fp-section-3') && secFruit) {
-          listPcBtnSpan.textContent = secFruit.textContent;
-      } else if (htmlElement.classList.contains('fp-section-4') && secConct) {
-          listPcBtnSpan.textContent = secConct.textContent;
+  if (listPcBody) {
+      const listPcBtn = document.querySelector('.list-pc__btn');
+      const listPcList = document.querySelector('.list-pc__list');
+      const listPcLinks = document.querySelectorAll('.list-pc__link');
+      const listPcBtnSpan = listPcBtn.querySelector('span');
+    
+      const secBlack = document.querySelector('.sec-black');
+      const secGreen = document.querySelector('.sec-green');
+      const secFruit = document.querySelector('.sec-fruit');
+      const secConct = document.querySelector('.sec-conct');
+      // Устанавливаем минимальную ширину для list-pc__body
+      if (listPcList) {
+          const listWidth = listPcList.offsetWidth;
+          listPcBody.style.minWidth = `${listWidth}px`;
       }
-  }
-
-  // Настройка MutationObserver для отслеживания изменений классов на теге html
-  const observer = new MutationObserver(function (mutationsList) {
-      for (const mutation of mutationsList) {
-          if (mutation.attributeName === 'class') {
-              updateSpanTextBasedOnClass();
+    
+      listPcBtn.addEventListener('click', function () {
+          listPcBody.classList.toggle('_active');
+      });
+    
+      listPcLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+              listPcBody.classList.remove('_active');
+              listPcBtnSpan.textContent = link.textContent;
+          });
+      });
+    
+      // Функция для обновления текста span в зависимости от класса
+      function updateSpanTextBasedOnClass() {
+          const htmlElement = document.documentElement;
+    
+          if (htmlElement.classList.contains('fp-section-1') && secBlack) {
+              listPcBtnSpan.textContent = secBlack.textContent;
+          } else if (htmlElement.classList.contains('fp-section-2') && secGreen) {
+              listPcBtnSpan.textContent = secGreen.textContent;
+          } else if (htmlElement.classList.contains('fp-section-3') && secFruit) {
+              listPcBtnSpan.textContent = secFruit.textContent;
+          } else if (htmlElement.classList.contains('fp-section-4') && secConct) {
+              listPcBtnSpan.textContent = secConct.textContent;
           }
       }
-  });
+    
+      // Настройка MutationObserver для отслеживания изменений классов на теге html
+      const observer = new MutationObserver(function (mutationsList) {
+          for (const mutation of mutationsList) {
+              if (mutation.attributeName === 'class') {
+                  updateSpanTextBasedOnClass();
+              }
+          }
+      });
+    
+      observer.observe(document.documentElement, { attributes: true });
+    
+      // Первоначальное обновление текста span на случай, если класс уже установлен
+      updateSpanTextBasedOnClass();
+  }
 
-  observer.observe(document.documentElement, { attributes: true });
-
-  // Первоначальное обновление текста span на случай, если класс уже установлен
-  updateSpanTextBasedOnClass();
 
 
 

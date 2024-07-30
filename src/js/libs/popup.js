@@ -275,8 +275,20 @@ class Popup {
 				this.isOpen = true;
 
 				// Добавляем классы по ID кнопки --------------------------
+				// this.targetOpen.element.classList.add(this.buttonId);
+				// document.documentElement.classList.add(this.buttonId);
+				 // Удаляем предыдущий buttonId
+				 if (this.previousButtonId) {
+					this.targetOpen.element.classList.remove(this.previousButtonId);
+					document.documentElement.classList.remove(this.previousButtonId);
+				}
+		
+				// Добавляем новый buttonId
 				this.targetOpen.element.classList.add(this.buttonId);
 				document.documentElement.classList.add(this.buttonId);
+		
+				// Сохраняем текущий buttonId как предыдущий
+				this.previousButtonId = this.buttonId;
 				// --------------------------------------------------------
 
 				setTimeout(() => {
@@ -336,8 +348,12 @@ class Popup {
 		}
 
   	// Удаляем классы по ID кнопки ----------------------------------------
-  	this.targetOpen.element.classList.remove(this.buttonId);
-  	document.documentElement.classList.remove(this.buttonId);
+  	// this.targetOpen.element.classList.remove(this.buttonId);
+  	// document.documentElement.classList.remove(this.buttonId);
+		 // Удаляем классы по ID кнопки
+		if (this.buttonId) {
+			document.documentElement.classList.remove(this.buttonId);
+		}
   	this.buttonId = ''; // Сбрасываем ID кнопки
   	// --------------------------------------------------------------------
 
@@ -402,7 +418,7 @@ class Popup {
 		if (!this.isOpen && this.lastFocusEl) {
 			this.lastFocusEl.focus();
 		} else {
-			focusable[0].focus();
+			// focusable[0].focus();
 		}
 	}
 	// Функція виведення в консоль

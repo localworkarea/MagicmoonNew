@@ -414,7 +414,7 @@ export class FullPage {
 		const secConct = document.querySelector('.sec-conct');
 		const secAbout = document.querySelector('.sec-about');
 		const secType = document.querySelector('.sec-type');
-		const secConts = document.querySelector('.sec-conts');
+		const secConts = document.querySelectorAll('.sec-conts');
 		const menuLogo = document.querySelector('.menu__logo');
 		const menuHeroType = document.querySelector('.menu-hero-type');
 		const menuHeroAbout = document.querySelector('.menu-hero-about');
@@ -453,11 +453,13 @@ export class FullPage {
 				this.switchingSection(5);
 			});
 		}
-		if (secConts) {
-			secConts.addEventListener("click", () => {
-				this.switchingSection(5);
+		if (secConts.length > 0) {
+			secConts.forEach(secCont => {
+					secCont.addEventListener("click", () => {
+							this.switchingSection(5);
+					});
 			});
-		}
+	}
 		if (secType) {
 			secType.addEventListener("click", () => {
 				this.switchingSection(1);
