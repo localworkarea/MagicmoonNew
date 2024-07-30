@@ -854,19 +854,14 @@
     }
     
     &.link-big {
-      @include adaptiveValue("width", 242, 180,0,1920,1440);
-      @include adaptiveValue("width", 180, 141,3,1440,480);
-      @include adaptiveValue("height", 242, 180,0,1920,1440);
-      @include adaptiveValue("height", 180, 141,3,1440,480);
+      @include adaptiveValue("width", 242, 180,2,1920,1440.98);
+      @include adaptiveValue("width", 180, 141,3,1440.98,480);
+      @include adaptiveValue("height", 242, 180,2,1920,1440.98);
+      @include adaptiveValue("height", 180, 141,3,1440.98,480);
       
-      @include adaptiveValue("padding-top", 38, 28,0,1920,1440);
-      @include adaptiveValue("padding-top", 28, 20,3,1440,480);
-      @include adaptiveValue("padding-right", 38, 28,0,1920,1440);
-      @include adaptiveValue("padding-right", 28, 20,3,1440,480);
-      @include adaptiveValue("padding-bottom", 38, 28,0,1920,1440);
-      @include adaptiveValue("padding-bottom", 28, 20,3,1440,480);
-      @include adaptiveValue("padding-left", 38, 28,0,1920,1440);
-      @include adaptiveValue("padding-left", 28, 20,3,1440,480);
+      @include adaptiveValue("padding", 38, 28,2,1920,1440.98);
+      @include adaptiveValue("padding", 28, 20,3,1440.98,480);
+  
     }
     &.link-sm {
       width: toRem(154);
@@ -1057,8 +1052,8 @@
     transform: translateY(50%);
     transition: opacity .8s ease 0s, transform .8s ease 0s;
     @include adaptiveValue("margin-top", 147, 100,0,1920,1440);
-    @include adaptiveValue("margin-bottom", 64, 48,0,1920,1440);
-    @include adaptiveValue("margin-bottom", 48, 10,3,1440,480);
+    @include adaptiveValue("margin-bottom", 64, 48,2,1920,1440.98);
+    @include adaptiveValue("margin-bottom", 48, 10,3,1440.98,480);
     img {
       @include adaptiveValue("width", 469, 330,0,1920,1440);
       @include adaptiveValue("width", 330, 290,3,480,360);
@@ -1111,8 +1106,8 @@
     opacity: 0;
     transform: translateY(100%);
     transition: opacity .8s ease 0.15s, transform .8s ease 0.15s;
-    @include adaptiveValue("font-size", 50, 38,0,1920,1440);
-    @include adaptiveValue("font-size", 38, 24,3,1440,480);
+    @include adaptiveValue("font-size", 50, 38,2,1920,1440.98);
+    @include adaptiveValue("font-size", 38, 24,3,1440.98,480);
     // .popup-20 &,
     // .popup-21 &,
     // .popup-22 &,

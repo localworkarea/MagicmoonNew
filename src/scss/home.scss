@@ -140,8 +140,8 @@
     position: relative;
     display: flex;
     justify-content: center;
-    @include adaptiveValue("width", 430, 322,0,1920,1440);
-    @include adaptiveValue("width", 322, 200,3,1440,768);
+    @include adaptiveValue("width", 430, 322,2,1920,1440.98);
+    @include adaptiveValue("width", 322, 200,3,1440.98,768);
     @media (max-width:$mobileSmall){
        width: auto !important; 
     }
@@ -176,8 +176,8 @@
     
     opacity: 0;
     transition: opacity 1s ease, transform 1s ease;
-    @include adaptiveValue("width", 264, 198,0,1920,1440);
-    @include adaptiveValue("width", 198,120,3,1440,768);
+    @include adaptiveValue("width", 264, 198,2,1920,1440.98);
+    @include adaptiveValue("width", 198,120,3,1440.98,768);
     @media (max-width:$mobileXS){
        width: toRem(100) !important; 
     }
@@ -296,6 +296,7 @@
   }
 	// .title-hero__sub
 	&__sub {
+    position: relative;
     // overflow: hidden;
     opacity: 0;
     // @media (min-width:$mobileSmall){
@@ -309,50 +310,53 @@
       //   width: 100%;
       // }
     }
+    @media (min-width:toEm(1440.98)){
+      top: toRem(-40);
+    }
+    @media (max-width:toEm(1440.98)){
+        top: toRem(-20);
+    }
+    @media (max-width:$tablet){
+      top: 0;
+    }
 	}
-	// .title-hero__world
-	&__world {
-    height: auto;
-    @include adaptiveValue("width", 707,572,2,1920,1440.98);
-    @include adaptiveValue("width", 572,191,3,1440.98,480.98);
-	}
-	// .title-hero__subtitle
-	// &__subtitle {
-  //   background-image: linear-gradient(90deg, #F9D4BF -13.71%, #BA9B57 12.21%, #F9C46E 33.37%, #F0B963 52.93%, #F9F3BB 74.09%, #C1A059 100%);
-  //   background-clip: text;
-  //   -webkit-background-clip: text;
-  //   -webkit-text-fill-color: transparent;
-  //   color: transparent;
-
-  //   font-weight: 500;
-  //   line-height: 1.3;
-  //   text-transform: uppercase;
-  //   text-wrap: nowrap;
-  //   position: relative;
-  //   top: toRem(-40);
-    
-  //   opacity: 0;
-    
-  //   @include adaptiveValue("font-size", 59, 44,2,1920,1440); // 707 - 527
-  //   @include adaptiveValue("font-size", 44, 16,3,1440,480); // 572 - 191
-  //   @media (min-width:$mobileSmall){
-  //     width: 0;
-  //     overflow: hidden;
-  //   }
-  //   .loaded & {
-  //     opacity: 1;
-  //     transition: opacity 1.8s ease .8s, width 1.8s ease .8s;
-  //     @media (min-width:$mobileSmall){
-  //       width: 100%;
-  //     }
-  //   }
-  //   @media (max-width:toEm(1440.98)){
-  //       top: toRem(-20);
-  //   }
-  //   @media (max-width:$tablet){
-  //     top: 0;
-  //   }
+	// // .title-hero__world
+	// &__world {
+  //   height: auto;
+  //   @include adaptiveValue("width", 707,572,2,1920,1440.98);
+  //   @include adaptiveValue("width", 572,191,3,1440.98,480.98);
 	// }
+	// .title-hero__subtitle
+	&__subtitle {
+    background-image: linear-gradient(90deg, #F9D4BF -13.71%, #BA9B57 12.21%, #F9C46E 33.37%, #F0B963 52.93%, #F9F3BB 74.09%, #C1A059 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    font-weight: 500;
+    line-height: 1.3;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    
+    // opacity: 0;
+    
+    @include adaptiveValue("font-size", 59, 44,2,1920,1440); // 707 - 527
+    @include adaptiveValue("font-size", 44, 16,3,1440,480); // 572 - 191
+    // @media (min-width:$mobileSmall){
+      // width: 0;
+      // overflow: hidden;
+    // }
+    // .loaded & {
+    //   opacity: 1;
+    // transition: opacity 1.8s ease .8s, width 1.8s ease .8s;
+      // transition: opacity .8s ease 1s;
+      // @media (min-width:$mobileSmall){
+      //   width: 100%;
+      // }
+      // }
+   
+	}
 }
 
 .bg-hero {
@@ -373,8 +377,8 @@
     left: -50%;
     opacity: 0;
     transition: left 1.2s ease, opacity 1.2s ease;
-    @include adaptiveValue("width", 550, 400,0,1920,1440);
-    @include adaptiveValue("width", 400, 300,3,1440,992);
+    @include adaptiveValue("width", 550, 400,2,1920,1440.98);
+    @include adaptiveValue("width", 400, 300,3,1440.98,992);
     @media (max-width:$tablet){
        left: 0; 
     }
@@ -430,8 +434,8 @@
 
   // .bg-hero__right
   &__right {
-    @include adaptiveValue("width", 400, 300,0,1920,1440);
-    @include adaptiveValue("width", 300, 200,3,1440,768);
+    @include adaptiveValue("width", 400, 300,2,1920,1440.98);
+    @include adaptiveValue("width", 300, 200,3,1440.98,768);
     @media (min-width:$mobile){
       position: absolute;
       bottom: 0;
@@ -768,10 +772,10 @@
 		&__top-body {
       max-width: toRem(1350);
       position: relative;
-      @include adaptiveValue("margin-top", 215, 160,0,1920,1440);
-      @include adaptiveValue("margin-top", 160, 115,3,1440,480);
-      @include adaptiveValue("margin-bottom", 102, 75,0,1920,1440);
-      @include adaptiveValue("margin-bottom", 75, 40,3,1440,480);
+      @include adaptiveValue("margin-top", 215, 160,2,1920,1440.98);
+      @include adaptiveValue("margin-top", 160, 115,3,1440.98,480);
+      @include adaptiveValue("margin-bottom", 102, 75,2,1920,1440.98);
+      @include adaptiveValue("margin-bottom", 75, 40,3,1440.98,480);
 		}
 		// .fourth__stars
 		&__stars {
@@ -795,8 +799,8 @@
       opacity: 0;
       transform: translateY(10%);
       transition: opacity .8s ease, transform .8s ease;
-      @include adaptiveValue("font-size", 50, 36,0,1920,1440);
-      @include adaptiveValue("font-size", 36, 22,3,1440,480);
+      @include adaptiveValue("font-size", 50, 36,2,1920,1440.98);
+      @include adaptiveValue("font-size", 36, 22,3,1440.98,480);
       @include adaptiveValue("margin-bottom", 64, 40);
       .fp-section-5 & {
         opacity: 1;
@@ -822,10 +826,10 @@
   z-index: -1;
   left: 0;
   width: 100%;
-  @include adaptiveValue("top", -116, -83,0,1920,1440);
-  @include adaptiveValue("top", -83, -48,3,1440,480);
-  @include adaptiveValue("height", 290, 218,0,1920,1440);
-  @include adaptiveValue("height", 218, 154,3,1440,480);
+  @include adaptiveValue("top", -116, -83,2,1920,1440.98);
+  @include adaptiveValue("top", -83, -48,3,1440.98,480);
+  @include adaptiveValue("height", 290, 218,2,1920,1440.98);
+  @include adaptiveValue("height", 218, 154,3,1440.98,480);
   .stars__img {
     position: absolute;
   }
@@ -1203,8 +1207,8 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  @include adaptiveValue("gap", 53, 38,0,1920,1440);
-  @include adaptiveValue("gap", 38, 16,3,1440,480);
+  @include adaptiveValue("gap", 53, 38,2,1920,1440.98);
+  @include adaptiveValue("gap", 38, 16,3,1440.98,480);
   @media (max-width:toEm(700.98)){
    grid-template-columns: 1fr;   
   //  overflow-x: hidden;    
@@ -1326,8 +1330,8 @@
       max-width: toRem(1566);
       margin: 0 auto;
       @include adaptiveValue("gap", 20, 16);
-      @include adaptiveValue("margin-bottom", 122, 90,0,1920,1440);
-      @include adaptiveValue("margin-bottom", 90, 60,3,1440,480);
+      @include adaptiveValue("margin-bottom", 122, 90,2,1920,1440.98);
+      @include adaptiveValue("margin-bottom", 90, 60,3,1440.98,480);
       @media (max-width:toEm(1200.98)){
         grid-template-columns: repeat(3, 1fr);
       }
