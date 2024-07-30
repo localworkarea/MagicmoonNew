@@ -296,17 +296,18 @@
   }
 	// .title-hero__sub
 	&__sub {
-    overflow: hidden;
+    // overflow: hidden;
     opacity: 0;
-    @media (min-width:$mobileSmall){
-      width: 0;
-    }
+    // @media (min-width:$mobileSmall){
+    //   width: 0;
+    // }
     .loaded & {
       opacity: 1;
-      transition: opacity .6s ease .8s, width 2.5s ease .8s;
-      @media (min-width:$mobileSmall){
-        width: 100%;
-      }
+      // transition: opacity .6s ease .8s, width 2.5s ease .8s;
+      transition: opacity .6s ease 1s;
+      // @media (min-width:$mobileSmall){
+      //   width: 100%;
+      // }
     }
 	}
 	// .title-hero__world

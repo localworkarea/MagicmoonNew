@@ -1575,12 +1575,11 @@ body {
   left: 57%
 }
 .title-hero__sub {
-  overflow: hidden;
   opacity: 0
 }
 .loaded .title-hero__sub {
   opacity: 1;
-  transition: opacity .6s ease .8s,width 2.5s ease .8s
+  transition: opacity .6s ease 1s
 }
 .title-hero__world {
   height: auto
@@ -2444,12 +2443,6 @@ body {
   transition: all .3s ease
 }
 @media (min-width:30.06125em) {
-  .title-hero__sub {
-    width: 0
-  }
-  .loaded .title-hero__sub {
-    width: 100%
-  }
   .win-popup__content {
     border-radius: 2.5rem
   }
