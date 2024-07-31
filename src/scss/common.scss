@@ -84,10 +84,10 @@
       .popup-25 &,
       .popup-26 &,
       .popup-27 &,
-      .popup-28 & {
+      .popup-28 &,
+      .terms-page & {
         opacity: 0;
       }
-      
     }
     &.bg-1 {
       background: $blue-2;
@@ -213,7 +213,8 @@
     }
     &.bg-19 {
       background: linear-gradient(180deg, #003E47 0%, #4FA046 100%);
-      .popup-27 & {
+      .popup-27 &,
+      .terms-page & {
         opacity: 1;
       }
     }
@@ -239,7 +240,6 @@
 }
 
 .menu-hero {
-  @media (min-width:toEm(1300.98)){
     position: fixed;
     z-index: 160;
     top: 0;
@@ -252,45 +252,57 @@
       opacity: 1;
       transition-delay: .3s;
     }
-  }
+    .terms-page & {
+      opacity: 1;
+      @media (max-width:$mobileSmall){
+        // background:#003E47;
+        // background:#4FA046;
+        background: linear-gradient(9 0deg, #003E47 0%, #4FA046 100%);
+
+      }
+    }
   @media (max-width: toEm(1300.98)){
       display: none;
+      .terms-page & {
+        display: block
+      }
   }
   // .menu-hero__nav
   &__nav {
-    @include adaptiveValue("height", 103, 75, 0, 1920, 1440);
-    @include adaptiveValue("padding-right", 44, 22, 0, 1920, 1440);
-    @media (min-width:toEm(1300.98)){
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      margin: 0 toRem(27);
-      opacity: 0;
-      transition: opacity .3s ease;
-    
-      .loaded & {
-        opacity: 1;
-        transition-delay: 1.5s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 toRem(27);
+    opacity: 0;
+    transition: opacity .3s ease;
+    .terms-page & {
+      @media (max-width:$mobileSmall){
+        margin: 0;
+        justify-content: center;
       }
     }
+    .loaded & {
+      opacity: 1;
+      transition-delay: 1.5s;
+    }
+    @include adaptiveValue("height", 103, 75, 0, 1920, 1440);
+    @include adaptiveValue("padding-right", 44, 22, 0, 1920, 1440);
   }
 		// .menu-hero__list
 		&__list {
-      @media (min-width:toEm(1300.98)){
         display: flex;
         align-items: center;
-      }
       @include adaptiveValue("column-gap", 18, 8,0,1920,1440);
 		}
 		// .menu-hero__item
 		&__item {
-      .fp-section-0 & {
+      .fp-section-0 &,
+      .terms-page & {
         pointer-events: all;
       }
 		}
 		// .menu-hero__link
 		&__link {
-      @media (min-width:toEm(1300.98)){
         padding: toRem(7) toRem(30);
         font-weight: 500;
         line-height: 1.3;
@@ -305,7 +317,12 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-      }
+
+        .terms-page & {
+          @media (max-width:$mobileSmall){
+            font-size: toRem(16) !important;
+          }
+        }
       @include adaptiveValue("font-size", 25, 18,0,1920,1440);
       
       
