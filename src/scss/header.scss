@@ -237,6 +237,18 @@
 .sec-conct {
 }
 
+.menu-open {
+	.promo-page {
+		.nav {
+			@media (max-width: toEm(1300.98)) and (min-width:$mobileSmall) {
+				height: toRem(300);
+			}
+			@media (max-width:$mobileSmall){
+				height: toRem(300) !important;
+			}
+		}
+	}
+}
 
 .nav {
 	display: flex;
@@ -272,6 +284,7 @@
 		@media (max-width:$mobileSmall){
 			padding: toRem(50) toRem(24) toRem(24);
 			height: toRem(450);
+			
 		}
 		@media (max-width: toEm(900.98)) and (max-height: toEm(500.98)){
 			padding: toRem(40) toRem(24) toRem(16);

@@ -275,18 +275,14 @@ class Popup {
 				this.isOpen = true;
 
 				// Добавляем классы по ID кнопки --------------------------
-				// this.targetOpen.element.classList.add(this.buttonId);
-				// document.documentElement.classList.add(this.buttonId);
 				 // Удаляем предыдущий buttonId
 				 if (this.previousButtonId) {
 					this.targetOpen.element.classList.remove(this.previousButtonId);
 					document.documentElement.classList.remove(this.previousButtonId);
 				}
-		
 				// Добавляем новый buttonId
 				this.targetOpen.element.classList.add(this.buttonId);
 				document.documentElement.classList.add(this.buttonId);
-		
 				// Сохраняем текущий buttonId как предыдущий
 				this.previousButtonId = this.buttonId;
 				// --------------------------------------------------------
