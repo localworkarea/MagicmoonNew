@@ -257,7 +257,7 @@
       @media (max-width:$mobileSmall){
         // background:#003E47;
         // background:#4FA046;
-        background: linear-gradient(9 0deg, #003E47 0%, #4FA046 100%);
+        background-image: linear-gradient(90deg, #003E47 0%, #4FA046 100%);
 
       }
     }

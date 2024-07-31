@@ -4766,7 +4766,7 @@ body {
 }
 @media (max-width:30.06125em) {
   .terms-page .menu-hero {
-    background: linear-gradient(9 0deg,#003e47 0,#4fa046 100%)
+    background-image: linear-gradient(90deg,#003e47 0,#4fa046 100%)
   }
   .terms-page .menu-hero__nav {
     margin: 0;
