@@ -1194,10 +1194,17 @@ body {
   right: 1.5625rem;
   top: 50%
 }
+.popup-20 .popup__images-wr-h,
+.popup-21 .popup__images-wr-h,
+.popup-22 .popup__images-wr-h,
+.popup-23 .popup__images-wr-h,
+.popup-24 .popup__images-wr-h,
 .popup-25 .popup__images-wr-h,
 .popup-26 .popup__images-wr-h,
 .popup-27 .popup__images-wr-h,
-.popup-28 .popup__images-wr-h {
+.popup-28 .popup__images-wr-h,
+.popup-4 .popup__images-wr-h,
+.popup-8 .popup__images-wr-h {
   display: none
 }
 .popup__images-wr-h::before {
