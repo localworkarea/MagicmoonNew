@@ -2028,6 +2028,26 @@
 	// .popup-more__color
 	&__color {
     margin-bottom: toRem(20);
+    position: relative;
+    &::before {
+      content:'';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      height: 150%;
+      width: 100%;
+      background-image: url("../img/win/money-2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      @media (min-width:$mobileSmall){
+        transform: translate(-50%,-50%);
+      }
+      @media (max-width:$mobileSmall){
+        transform: translate(-40%,-50%);
+      }
+    }
 	}
 	// .popup-more__subtitle
 	&__subtitle {
