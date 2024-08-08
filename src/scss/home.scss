@@ -295,14 +295,14 @@
 	&__sub {
     position: relative;
     // overflow: hidden;
-    opacity: 0;
     // @media (min-width:$mobileSmall){
-    //   width: 0;
-    // }
+      //   width: 0;
+      // }
+      opacity: 0;
     .loaded & {
       opacity: 1;
       // transition: opacity .6s ease .8s, width 2.5s ease .8s;
-      transition: opacity .6s ease 1s;
+      transition: opacity .3s ease .5s;
       // @media (min-width:$mobileSmall){
       //   width: 100%;
       // }
