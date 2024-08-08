@@ -185,6 +185,13 @@ body {
 .section {
   background: 0 0
 }
+.loaded .section.first,
+.loaded .section.five,
+.loaded .section.fourth,
+.loaded .section.second,
+.loaded .section.third {
+  opacity: 1!important
+}
 .bg-main {
   position: fixed;
   z-index: -1;
@@ -1867,7 +1874,7 @@ body {
   transition: opacity .6s ease 1s
 }
 .title-hero__subtitle {
-  color: #b3a155;
+  color: #ccbc77;
   font-weight: 500;
   line-height: 1.3;
   text-transform: uppercase;

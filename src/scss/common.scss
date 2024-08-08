@@ -1,6 +1,15 @@
 
 .section {
   background: transparent;  
+  &.first,
+  &.second,
+  &.third,
+  &.five,
+  &.fourth {
+    .loaded & {
+      opacity: 1 !important;
+    }
+  }
 }
 
 
