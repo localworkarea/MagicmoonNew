@@ -1867,11 +1867,7 @@ body {
   transition: opacity .6s ease 1s
 }
 .title-hero__subtitle {
-  background-image: linear-gradient(90deg,#f9d4bf -13.71%,#ba9b57 12.21%,#f9c46e 33.37%,#f0b963 52.93%,#f9f3bb 74.09%,#c1a059 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: #b3a155;
   font-weight: 500;
   line-height: 1.3;
   text-transform: uppercase;
@@ -5348,9 +5344,6 @@ body {
   .title-hero {
     max-width: clamp(81.9375rem ,2.25rem + 88.5416666667vw ,108.5rem)
   }
-  .title-hero__subtitle {
-    font-size: clamp(2.75rem ,-.0625rem + 3.125vw ,3.6875rem)
-  }
   .bg-second-01 {
     max-width: clamp(18.75rem ,-1.3125rem + 22.2916666667vw ,25.4375rem)
   }
@@ -5411,6 +5404,9 @@ body {
   }
   .title-hero__img-c {
     width: clamp(12.375rem ,-.0337564194rem + 13.7781303495vw ,16.5rem)
+  }
+  .title-hero__subtitle {
+    font-size: clamp(2.75rem ,-.0701719135rem + 3.1313932612vw ,3.6875rem)
   }
   .bg-hero__left {
     width: clamp(25rem ,-3.2017191349rem + 31.3139326124vw ,34.375rem)
@@ -5490,6 +5486,9 @@ body {
   }
   .popup__name-icon {
     height: clamp(2.125rem ,1.1260197923rem + 3.3299340257vw ,4.125rem)
+  }
+  .title-hero__subtitle {
+    font-size: clamp(1rem ,.1258923183rem + 2.9136922725vw ,2.75rem)
   }
   .fourth__top-body {
     margin-top: clamp(7.1875rem ,5.7826840829rem + 4.6827197236vw ,10rem)
@@ -5710,11 +5709,6 @@ body {
   }
   .bg-hero__right {
     width: clamp(12.5rem ,5.367544355rem + 14.8592825938vw ,18.75rem)
-  }
-}
-@media (min-width:30em) and (max-width:90em) {
-  .title-hero__subtitle {
-    font-size: clamp(1rem ,.125rem + 2.9166666667vw ,2.75rem)
   }
 }
 @media (min-width:62em) and (max-width:90.06125em) {
