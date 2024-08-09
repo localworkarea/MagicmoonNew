@@ -1866,7 +1866,13 @@ body {
   left: 57%
 }
 .title-hero__sub {
-  position: relative
+  position: relative;
+  opacity: 0;
+  transition: opacity .3s ease 0s
+}
+.loaded .title-hero__sub {
+  opacity: 1;
+  transition-delay: .5s
 }
 .title-hero__subtitle {
   color: #ccbc77;
